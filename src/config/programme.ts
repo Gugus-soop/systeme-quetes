@@ -120,6 +120,7 @@ export function construireSemaine(niveau: Niveau | null, semaine: number, reglag
         type: 'circuit',
         difficulte: 2,
         dureeMin: 35,
+        note: "Pompes piquées : mains sur une chaise calée contre un mur, fesses en haut, tête vers le bord de la chaise. Si tu bloques avant la fin : descends lentement (3 s) et remonte comme tu peux. Quand tu en fais 8 propres, passe les mains au sol.",
         exercices: [
           {
             kind: 'circuit',
@@ -130,7 +131,7 @@ export function construireSemaine(niveau: Niveau | null, semaine: number, reglag
             mouvements: [
               `${c.pompes} pompes`,
               `${c.dips} dips sur chaise`,
-              `${c.piquees} pompes piquées`,
+              `${c.piquees} pompes piquées mains sur une chaise`,
               '20 mountain climbers',
               `Gainage ${c.gainage} s`,
             ],
