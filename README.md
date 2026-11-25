@@ -8,6 +8,7 @@ Données stockées uniquement sur le téléphone (localStorage). Fonctionne hors
 - `npm run dev` : version de développement
 - `npm run build` : construit l'app dans `dist/`
 - `npm run preview` : teste la version construite (http://localhost:8792)
+- `npm run deploy` : met l'app en ligne (GitHub Pages, branche gh-pages)
 - `npm run icons` : régénère les icônes depuis `scripts/logo.png`
 
 ## Modifier le programme
@@ -35,5 +36,5 @@ src/lib/date.ts             dates
 src/lib/sons.ts             bips (Web Audio) + vibrations
 src/components/             Panneau, Minuteur, Graphique, Superposition
 src/screens/                Statut, Quete, Seance, Planning, Historique, Reglages, TestNiveau
-.github/workflows/deploy.yml déploiement GitHub Pages
+
 ```
