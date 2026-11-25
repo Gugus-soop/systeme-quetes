@@ -1,6 +1,6 @@
 /* Service worker du Système : met tout en cache pour fonctionner hors ligne. */
-const VERSION = 'systeme-1795621188603'
-const PRECACHE = ["./","./index.html","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/apple-touch-icon.png","./assets/orbitron-latin-500-normal-C8p1Veyw.woff2","./assets/orbitron-latin-900-normal-6caezjY1.woff2","./assets/inter-latin-ext-600-normal-BnYJhD27.woff2","./assets/inter-latin-600-normal-D273HNI0.woff2","./assets/orbitron-latin-700-normal-C2w85Zl1.woff2","./assets/inter-latin-ext-400-normal-hnt3BR84.woff2","./assets/inter-latin-400-normal-BOOGhInR.woff2","./assets/index-B6AhzICp.css","./assets/index-CXnHQ6wZ.js"]
+const VERSION = 'systeme-1795622271387'
+const PRECACHE = ["./","./index.html","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/apple-touch-icon.png","./assets/orbitron-latin-500-normal-C8p1Veyw.woff2","./assets/orbitron-latin-700-normal-C2w85Zl1.woff2","./assets/orbitron-latin-900-normal-6caezjY1.woff2","./assets/inter-latin-400-normal-BOOGhInR.woff2","./assets/inter-latin-ext-400-normal-hnt3BR84.woff2","./assets/inter-latin-ext-600-normal-BnYJhD27.woff2","./assets/inter-latin-600-normal-D273HNI0.woff2","./assets/index-B6AhzICp.css","./assets/index-DqB24wU0.js"]
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(VERSION).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()))
