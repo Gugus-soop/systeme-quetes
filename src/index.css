@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Thème : bleu nuit, bleu électrique, violet. */
+@theme {
+  --color-nuit: #05070f;
+  --color-nuit-2: #0a1020;
+  --color-ligne: #1e2b4a;
+  --color-bleu: #38bdf8;
+  --color-bleu-vif: #60a5fa;
+  --color-violet: #a78bfa;
+  --color-texte: #dbe7ff;
+  --color-doux: #8193b8;
+  --color-danger: #f43f5e;
+  --color-or: #fbbf24;
+  --font-titre: "Orbitron", system-ui, sans-serif;
+  --font-texte: "Inter", system-ui, sans-serif;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(120% 60% at 50% 0%, #0d1a3a 0%, var(--color-nuit) 60%) fixed, var(--color-nuit);
+  color: var(--color-texte);
+  font-family: var(--font-texte);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+button { cursor: pointer; touch-action: manipulation; }
+input, select { font-size: 16px; } /* évite le zoom automatique sur iPhone */
+
+/* Fenêtre « notification du Système » */
+.panneau {
+  position: relative;
+  background: linear-gradient(180deg, rgba(14, 26, 56, 0.78), rgba(8, 14, 32, 0.82));
+  border: 1px solid rgba(96, 165, 250, 0.55);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.08) inset, 0 0 18px rgba(56, 189, 248, 0.18), 0 0 40px rgba(167, 139, 250, 0.08);
+  backdrop-filter: blur(6px);
+}
+.panneau::before, .panneau::after {
+  content: ""; position: absolute; width: 10px; height: 10px; border-color: var(--color-bleu);
+}
+.panneau::before { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+.panneau::after { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+.panneau-danger { border-color: rgba(244, 63, 94, 0.7); box-shadow: 0 0 22px rgba(244, 63, 94, 0.25); }
+.panneau-danger::before, .panneau-danger::after { border-color: var(--color-danger); }
+.panneau-or { border-color: rgba(251, 191, 36, 0.7); box-shadow: 0 0 22px rgba(251, 191, 36, 0.22); }
+.panneau-or::before, .panneau-or::after { border-color: var(--color-or); }
+
+.lueur { text-shadow: 0 0 8px rgba(56, 189, 248, 0.75), 0 0 22px rgba(56, 189, 248, 0.35); }
+.lueur-violet { text-shadow: 0 0 10px rgba(167, 139, 250, 0.8), 0 0 28px rgba(167, 139, 250, 0.4); }
+
+/* Apparition : léger glitch + fondu */
+@keyframes apparition {
+  0% { opacity: 0; transform: translateY(6px) scale(0.98); filter: blur(2px); clip-path: inset(0 0 100% 0); }
+  30% { opacity: 1; transform: translateX(-3px); clip-path: inset(0 0 40% 0); }
+  45% { transform: translateX(3px); clip-path: inset(20% 0 0 0); }
+  60% { transform: translateX(-1px); clip-path: inset(0 0 0 0); filter: blur(0); }
+  100% { opacity: 1; transform: none; }
+}
+.apparition { animation: apparition 0.45s ease-out both; }
+
+@keyframes pulse-lent { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+.pulse-lent { animation: pulse-lent 2.2s ease-in-out infinite; }
+
+@keyframes montee {
+  0% { opacity: 0; transform: scale(0.6); letter-spacing: 0.6em; }
+  40% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); letter-spacing: 0.12em; }
+}
+.montee { animation: montee 0.9s cubic-bezier(.2, .9, .3, 1.2) both; }
+
+@keyframes rayons { to { transform: rotate(360deg); } }
+.rayons { animation: rayons 14s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .apparition, .montee, .pulse-lent, .rayons { animation: none; }
+}
